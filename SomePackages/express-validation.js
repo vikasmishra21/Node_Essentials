@@ -18,11 +18,11 @@ module.exports = (app) => {
       return value;
     }),
     check("password", "The password must be 5+ chars long and contain a number")
-      .not()
-      .isIn(["123", "password", "god"])
-      .withMessage("Do not use a common word as the password")
-      .isLength({ min: 5 })
-      .matches(/\d/),
+    .not()
+    .isIn(["123", "password", "god"])
+    .withMessage("Do not use a common word as the password")
+    .isLength({ min: 5 })
+    .matches(/\d/),
     (req, res) => {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
